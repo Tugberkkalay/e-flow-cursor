@@ -4,9 +4,10 @@ apps/web/.next/
 apps/web/out/
 apps/web/build/
 apps/api/.venv/
-apps/api/__pycache__/
+apps/api/**/*.pyc
+apps/api/**/__pycache__/
+apps/api/**/*.egg-info/
 apps/api/.pytest_cache/
-apps/api/alembic/__pycache__/
 apps/api/uploads/
 apps/api/*.db
 apps/api/*.sqlite3
