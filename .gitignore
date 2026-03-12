@@ -1,0 +1,40 @@
+# Node
+node_modules/
+.next/
+.turbo/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+*.egg-info/
+
+# Alembic
+alembic/versions/*.py
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env.local
+.env.*.local

@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    @apply bg-background text-accent font-sans;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D1D5DB;
+  }
+
+  input, textarea, select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-150 ease-apple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary-hover shadow-xs;
+  }
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-surface-hover border border-border;
+  }
+  .btn-ghost {
+    @apply btn hover:bg-surface-hover text-accent-muted hover:text-accent;
+  }
+  .btn-destructive {
+    @apply btn bg-destructive text-destructive-foreground hover:bg-red-600;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1.5 text-xs;
+  }
+  .btn-lg {
+    @apply px-5 py-2.5 text-base;
+  }
+  .btn-icon {
+    @apply btn p-2 aspect-square;
+  }
+
+  .card {
+    @apply bg-surface rounded-xl border border-border shadow-sm;
+  }
+  .card-hover {
+    @apply card hover:shadow-md hover:border-border transition-all duration-200 ease-apple cursor-pointer;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-accent placeholder:text-muted-foreground transition-all duration-150 focus:border-accent focus:ring-1 focus:ring-accent/20;
+  }
+
+  .label {
+    @apply text-xs font-medium text-accent-muted uppercase tracking-wide;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium;
+  }
+  .badge-success { @apply badge bg-success-soft text-success-foreground; }
+  .badge-warning { @apply badge bg-warning-soft text-warning-foreground; }
+  .badge-error { @apply badge bg-destructive-soft text-destructive; }
+  .badge-info { @apply badge bg-info-soft text-info-foreground; }
+  .badge-neutral { @apply badge bg-secondary text-accent-muted; }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-accent-muted transition-all duration-150 ease-apple hover:bg-surface-hover hover:text-accent cursor-pointer;
+  }
+  .sidebar-item-active {
+    @apply sidebar-item bg-accent-soft text-accent;
+  }
+
+  /* React Flow overrides */
+  .react-flow__node {
+    font-size: 14px;
+  }
+  .react-flow__edge-path {
+    stroke-width: 2;
+  }
+  .react-flow__controls {
+    @apply shadow-md rounded-lg border border-border overflow-hidden;
+  }
+  .react-flow__controls-button {
+    @apply border-0 border-b border-border hover:bg-surface-hover;
+  }
+  .react-flow__minimap {
+    @apply rounded-lg border border-border shadow-md overflow-hidden;
+  }
+  .react-flow__background {
+    background-color: #F7F8FA;
+  }
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(26,31,54,0.15); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(26,31,54,0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(26,31,54,0); }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
