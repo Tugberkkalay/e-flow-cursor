@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e-flow-enterprise-api"
+version = "0.1.0"
+description = "Enterprise BPM / workflow automation API for e-Flow Enterprise"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.16.0",
+  "email-validator>=2.2.0",
+  "fastapi>=0.116.0",
+  "httpx>=0.28.0",
+  "orjson>=3.10.0",
+  "pydantic-settings>=2.10.0",
+  "PyJWT>=2.10.0",
+  "python-multipart>=0.0.20",
+  "SQLAlchemy>=2.0.40",
+  "uvicorn[standard]>=0.35.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.4.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

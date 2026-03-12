@@ -1,0 +1,16 @@
+{
+  "name": "e-flow-enterprise",
+  "private": true,
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "lint:web": "npm --prefix apps/web run lint",
+    "dev:api": "bash -lc 'cd apps/api && uvicorn app.main:app --reload --port 8000'",
+    "test:api": "bash -lc 'cd apps/api && pytest'",
+    "prepare:playwright": "npx playwright install --with-deps chromium",
+    "test:web": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}
