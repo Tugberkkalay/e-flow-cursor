@@ -1,0 +1,30 @@
+[project]
+name = "e-flow-enterprise-api"
+version = "0.1.0"
+description = "e-Flow Enterprise BPM API"
+requires-python = ">=3.11"
+dependencies = [
+  "alembic>=1.16.0",
+  "fastapi>=0.115.0",
+  "httpx>=0.28.0",
+  "passlib[bcrypt]>=1.7.4",
+  "psycopg[binary]>=3.2.0",
+  "pydantic-settings>=2.9.0",
+  "python-jose[cryptography]>=3.3.0",
+  "python-multipart>=0.0.20",
+  "sqlalchemy>=2.0.40",
+  "uvicorn[standard]>=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.26.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
