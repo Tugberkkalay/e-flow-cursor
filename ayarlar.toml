@@ -1,0 +1,49 @@
+# IK Rapor Aracı - yerel ayarlar
+# Bu dosya bilgisayarınızda çalışır; Integrated Security kullanıldığı için parola gerekmez.
+
+[baglanti]
+sunucu = "BISVM-SQL2019"
+# Boş bırakılırsa şema analizi tüm kullanıcı veritabanlarını tarar.
+veritabani = ""
+# Boş bırakılırsa makinede kurulu en yeni "ODBC Driver xx for SQL Server" otomatik seçilir.
+surucu = ""
+integrated_security = true
+# integrated_security = false ise aşağıdakiler kullanılır (veya ortam değişkenleri MSSQL_USER / MSSQL_PASSWORD).
+kullanici = ""
+parola = ""
+encrypt = true
+trust_server_certificate = true
+baglanti_zaman_asimi = 30
+komut_zaman_asimi = 300
+
+[sema_analizi]
+# Sadece bu veritabanları taransın (boş = hepsi). Örn: ["EFLOW", "IK"]
+veritabanlari = []
+# Sistem veritabanları her zaman atlanır.
+# Kolon adlarında aranacak IK anahtar kelimeleri (ilgili tabloları hızlı bulmak için)
+anahtar_kelimeler = [
+  "personel", "sicil", "calisan", "çalışan", "employee", "izin", "leave", "ucret", "ücret", "maas", "maaş",
+  "salary", "performans", "organizasyon", "departman", "birim", "pozisyon", "unvan", "yonetici", "yönetici",
+  "manager", "cikis", "çıkış", "ayrilma", "ayrılma", "ise_giris", "girış", "hire", "termination", "case",
+  "vaka", "iletisim", "iletişim", "telefon", "email", "mail", "sozlesme", "sözleşme", "belirli", "perakende", "magaza", "mağaza",
+]
+
+[veri_profili]
+# Profillenecek tablolar: "sema.tablo" veya "veritabani.sema.tablo". Boş = satır sayısına göre en büyük N tablo.
+tablolar = []
+en_buyuk_n_tablo = 40
+# Çok büyük tablolarda örnekleme için TABLESAMPLE kullanılacak eşik (satır)
+ornekleme_esigi = 2_000_000
+
+[raporlar]
+# SQL dosyalarının bulunduğu klasör ve çıktı klasörü
+sql_klasoru = "raporlar"
+cikti_klasoru = "cikti"
+# Çıktı dosya adına tarih eklensin mi
+tarih_eki = true
+
+# SQL dosyalarında {ad} biçiminde kullanılabilecek parametreler
+[raporlar.parametreler]
+baslangic_tarihi = "2025-01-01"
+bitis_tarihi = "2025-12-31"
+donem_yil = 2025
