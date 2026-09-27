@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+# Üretilen raporlar ve şifresi çözülmüş şablonlar kişisel veri içerebilir; repoya girmez.
+cikti/
+sablonlar/
+*.xlsx
+*.xls
+*.xlsm
